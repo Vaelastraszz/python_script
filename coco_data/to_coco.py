@@ -1,6 +1,7 @@
 import json
 import csv
 from PIL import Image
+import _locale
 
 
 class Coco:
@@ -31,8 +32,8 @@ class Coco:
 
     @property
     def create_language(self):
-        with open("label_mapping.csv", encoding="utf8") as csv_file:
-            food_inv = csv.reader(csv_file, delimiter=",")
+        with open("label_mapping.csv") as csv_file:
+            food_inv = csv.reader(csv_file, delimiter=";")
             next(food_inv)
             food_dic = {row[0]: row[2] for row in food_inv}
         return food_dic
@@ -48,4 +49,4 @@ class Coco:
 
 if __name__ == "__main__":
     test = Coco()
-    print(len(test.language))
+    print(print(test.language))
